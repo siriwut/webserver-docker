@@ -1,11 +1,14 @@
-FROM node:12.11-alpine
+FROM node:12.13
 
-WORKDIR /home/node/app
+WORKDIR /usr/src/app
 
-COPY . /home/node/app
+#COPY package*.json ./
+
+RUN curl -o- -L https://yarnpkg.com/install.sh | bash
+RUN yarn install
+
+COPY . /usr/src/app
 
 EXPOSE 3000
 
-RUN ["yarn", "install"]
-
-#CMD ["node", "index.js"]
+CMD ["node", "index.js"]

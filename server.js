@@ -3,14 +3,9 @@ const app = express()
 const port = 3000
 
 app.get('/', (req, res) => {
-    res.send('Hello 111115')
+    res.send('Hello TAPE L MUSIC 5555555')
 })
 
 app.listen(port, () => {
     console.log(`app listening on port ${port}!`)
-})
-
-process.on('SIGINT', () => {
-    console.log('---SIGINT---')
-    process.exit()
 })

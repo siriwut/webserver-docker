@@ -1,15 +1,18 @@
-FROM node:12.13
+FROM node:10.17.0
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
-RUN apt-get update
-RUN apt-get install -y vim
+#RUN apt-get update
+#RUN apt-get install -y vim
 
-#COPY package*.json ./
-COPY . /usr/src/app
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+#COPY server.js /app
 #RUN curl -o- -L https://yarnpkg.com/install.sh | bash
-RUN yarn install
-
-EXPOSE 3000
 
 CMD ["node", "server.js"]
+
+EXPOSE 3000

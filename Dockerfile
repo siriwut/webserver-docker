@@ -1,4 +1,4 @@
-FROM node:10.17.0
+FROM node:12.13.0
 
 WORKDIR /app
 
@@ -7,12 +7,12 @@ WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm install
+RUN yarn install
 
 COPY . .
 #COPY server.js /app
 #RUN curl -o- -L https://yarnpkg.com/install.sh | bash
 
-CMD ["node", "server.js"]
-
 EXPOSE 3000
+
+CMD ["node", "server.js"]
